@@ -67,7 +67,7 @@ app.get('/profile/:id', async (req, res) => {
 // app.post('/login', auth.login);
 
 //mongoose.connect('mongodb+srv://MACTEP:jokers12@cluster0.8owk1.mongodb.net/SocialApp?retryWrites=true&w=majority', 
-mongoose.connect(process.env.MONGOLAB_ROSE_URI || 'mongodb+srv://MACTEP:jokers12@cluster0.8owk1.mongodb.net/SocialApp?retryWrites=true&w=majority', 
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://MACTEP:jokers12@cluster0.8owk1.mongodb.net/SocialApp?retryWrites=true&w=majority', 
     {useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
         if (!err)
             console.log('connected to mongo');
