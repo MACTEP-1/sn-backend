@@ -73,4 +73,4 @@ mongoose.connect('mongodb+srv://MACTEP:jokers12@cluster0.8owk1.mongodb.net/Socia
 })
 
 app.use('/auth', auth.router);
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
