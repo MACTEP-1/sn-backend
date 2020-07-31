@@ -9,6 +9,9 @@ var User = require('./models/User.js');
 var Post = require('./models/Post.js');
 var auth = require('./auth.js');
 
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://MACTEP:jokers12@cluster0.8owk1.mongodb.net/SocialApp?retryWrites=true&w=majority";
+
 // below line to avoid deprecation warning
 // which isn't there
 mongoose.Promise = Promise;
@@ -66,12 +69,20 @@ app.get('/profile/:id', async (req, res) => {
 
 // app.post('/login', auth.login);
 
-//mongoose.connect('mongodb+srv://MACTEP:jokers12@cluster0.8owk1.mongodb.net/SocialApp?retryWrites=true&w=majority', 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://MACTEP:jokers12@cluster0.8owk1.mongodb.net/SocialApp?retryWrites=true&w=majority', 
+//mongoose.connect('mongodb+srv://MACTEP:jokers12@cluster0.8owk1.mongodb.net/SocialApp?retryWrites=true&w=majority', // works locally
+
+mongoose.connect(/* process.env.MONGODB_URI ||  */'mongodb+srv://MACTEP:jokers12@cluster0.8owk1.mongodb.net/SocialApp?retryWrites=true&w=majority', 
     {useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
         if (!err)
             console.log('connected to mongo');
 })
+
+/* const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+}); */
 
 app.use('/auth', auth.router);
 app.listen(process.env.PORT || 3000);
