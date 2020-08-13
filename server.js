@@ -10,9 +10,12 @@ var Post = require('./models/Post.js');
 var auth = require('./auth.js');
 
 const MongoClient = require('mongodb').MongoClient;
+// mLab (deprecated):
 // const uri = "mongodb+srv://MACTEP:jokers12@cluster0.8owk1.mongodb.net/SocialApp?retryWrites=true&w=majority";
-const uri = "mongodb+srv://MACTEP:joker12@cluster-d25n6hmz.uvcto.mongodb.net/heroku_d25n6hmz?retryWrites=true&w=majority"
 
+// Atlas:
+const uri = "mongodb+srv://MACTEP:jokers12@cluster-d25n6hmz.uvcto.mongodb.net/SNet?retryWrites=true&w=majority"
+// const uri = "mongodb+srv://MACTEP:jokers12@cluster-d25n6hmz.uvcto.mongodb.net/heroku_d25n6hmz?retryWrites=true&w=majority"
 // below line to avoid deprecation warning
 // which isn't there
 mongoose.Promise = Promise;
@@ -76,6 +79,9 @@ mongoose.connect(process.env.MONGODB_URI || uri,
     {useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
         if (!err)
             console.log('connected to mongo');
+        else {
+            console.log('error', err);
+        }
 })
 
 /* const client = new MongoClient(uri, { useNewUrlParser: true });
