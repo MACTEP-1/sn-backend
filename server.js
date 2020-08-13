@@ -10,7 +10,8 @@ var Post = require('./models/Post.js');
 var auth = require('./auth.js');
 
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://MACTEP:jokers12@cluster0.8owk1.mongodb.net/SocialApp?retryWrites=true&w=majority";
+// const uri = "mongodb+srv://MACTEP:jokers12@cluster0.8owk1.mongodb.net/SocialApp?retryWrites=true&w=majority";
+const uri = "mongodb+srv://<username>:<password>@cluster-d25n6hmz.uvcto.mongodb.net/heroku_d25n6hmz?retryWrites=true&w=majority"
 
 // below line to avoid deprecation warning
 // which isn't there
@@ -71,7 +72,7 @@ app.get('/profile/:id', async (req, res) => {
 
 //mongoose.connect('mongodb+srv://MACTEP:jokers12@cluster0.8owk1.mongodb.net/SocialApp?retryWrites=true&w=majority', // works locally
 
-mongoose.connect(process.env.MONGODB_URI,
+mongoose.connect(process.env.MONGODB_URI || uri,
     {useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
         if (!err)
             console.log('connected to mongo');
