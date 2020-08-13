@@ -11,7 +11,8 @@ var auth = require('./auth.js');
 
 const MongoClient = require('mongodb').MongoClient;
 // const uri = "mongodb+srv://MACTEP:jokers12@cluster0.8owk1.mongodb.net/SocialApp?retryWrites=true&w=majority";
-const uri = "mongodb+srv://<username>:<password>@cluster-d25n6hmz.uvcto.mongodb.net/heroku_d25n6hmz?retryWrites=true&w=majority"
+// const uri = "mongodb+srv://<username>:<password>@cluster-d25n6hmz.uvcto.mongodb.net/heroku_d25n6hmz?retryWrites=true&w=majority"
+const uri = "mongodb+srv://<username>:<password>@cluster-d25nasdf.uvcto.mongodb.net/heroku_d25n6hmz?retryWrites=true&w=majority"
 
 // below line to avoid deprecation warning
 // which isn't there
