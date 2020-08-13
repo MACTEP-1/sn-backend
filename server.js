@@ -30,6 +30,7 @@ app.use(bodyParser.json());
 app.get('/posts/:id', async (req, res) => {
     var author = req.params['id'];
     var posts = await Post.find({author});
+    res.set('Access-Control-Allow-Origin', '*');
     res.send(posts);
 })
 
